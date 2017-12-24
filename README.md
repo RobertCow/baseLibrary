@@ -1,5 +1,5 @@
 # How To
-## Step1:Add it in your root build.gradle at the end of repositories:
+## Step1: Add it in your root build.gradle at the end of repositories:
 ```java
 allprojects {
 		repositories {
@@ -8,7 +8,7 @@ allprojects {
 		}
 	}
 ```  
-## Step2:Step 2. Add the dependency at your moudle build.gradle
+## Step2: Add the dependency at your moudle build.gradle
 ```java
 dependencies {
 	        compile 'com.github.RobertCow:GithubDemo:1.0.3'
