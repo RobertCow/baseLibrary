@@ -9,6 +9,7 @@
         android:layout_height="0dp"
         />
     <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="88px"
         android:layout_below="@+id/tv_holder"

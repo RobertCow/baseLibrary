@@ -1,13 +1,10 @@
 package soft.robert.com.xlibrary.base;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.view.WindowManager;
 
 
 import com.gyf.barlibrary.ImmersionBar;
@@ -18,8 +15,10 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import soft.robert.com.utils.R;
+import soft.robert.com.xlibrary.utils.BToast;
 import soft.robert.com.xlibrary.utils.LogUtils;
 import soft.robert.com.xlibrary.utils.SupportMultipleScreensUtil;
+import soft.robert.com.xlibrary.utils.ToastUtils;
 import soft.robert.com.xlibrary.utils.Utils;
 
 
@@ -67,6 +66,13 @@ public abstract class BaseActivity extends Activity{
                     SupportMultipleScreensUtil.scale(rootView);
                 }
                 View back= rootView.findViewById(R.id.iv_back);
+                int titleColor = ((BaseApplication) getApplication()).titleColor;
+                if(titleColor != 0) {
+                    View titleBackground = rootView.findViewById(R.id.rl_title);
+                    titleBackground.setBackgroundColor(titleColor);
+                }else{
+                    BToast.info("需要在Application中为titleColor字段赋值！");
+                }
                 if (back != null) {
                     back.setOnClickListener(new View.OnClickListener() {
                         @Override
