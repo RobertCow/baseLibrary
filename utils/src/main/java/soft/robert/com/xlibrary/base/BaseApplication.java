@@ -14,7 +14,7 @@ import soft.robert.com.xlibrary.utils.Utils;
  */
 
 public class BaseApplication extends Application {
-    int titleColor = 0;
+    public int titleColor = 0;
     @Override
     public void onCreate() {
         super.onCreate();
