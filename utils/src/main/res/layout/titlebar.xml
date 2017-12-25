@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" 
+    android:layout_height="wrap_content"
+    >
+    <TextView
+        android:id="@+id/tv_holder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:layout_below="@+id/tv_holder"
+        android:background="#242424"
+        >
+
+    <ImageView
+        android:id="@+id/iv_back_img"
+        android:layout_width="25px"
+        android:layout_height="70px"
+        android:src="@drawable/back"
+        android:layout_marginLeft="30px"
+        android:layout_centerVertical="true"
+        />
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题"
+        android:textSize="36px"
+        android:layout_centerInParent="true"
+        android:textColor="#fff"
+        />
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_toLeftOf="@+id/tv_right"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5px"
+        />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
+            android:textSize="28px"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

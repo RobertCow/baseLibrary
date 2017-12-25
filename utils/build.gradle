@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.github.dcendents.android-maven'
 android {
     compileSdkVersion 26
@@ -34,4 +35,8 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.12.0'//图片加载
     compile 'com.youth.banner:banner:1.4.9'  //最新版本
     compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.zhy:okhttputils:2.6.2'//网络加载框架
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'//拦截器
 }
