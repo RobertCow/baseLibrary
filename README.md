@@ -11,6 +11,6 @@ allprojects {
 ## Step2: Add the dependency at your moudle build.gradle
 ```
 dependencies {
-	        compile 'com.github.RobertCow:GithubDemo:1.0.4'
+	        compile 'com.github.RobertCow:GithubDemo:1.0.5'
 	}
 ```
