@@ -32,6 +32,7 @@ public abstract class BaseActivity extends Activity{
     public Map<String,String> map = new HashMap<>();
     private Unbinder mUnbinder;
     private View rootView;
+    private ImmersionBar mImmersionBar;
 
     public abstract boolean isScale();//是否缩放
     public abstract boolean isImmersion();//是否浸入式状态栏
@@ -47,7 +48,8 @@ public abstract class BaseActivity extends Activity{
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
         if(isImmersion()){
-            ImmersionBar.with(this).init();
+            mImmersionBar = ImmersionBar.with(this);
+            mImmersionBar.init();   //所有子类都将继承这些相同的属性
         }
         try {
             int layoutResID = initView(savedInstanceState);
@@ -80,5 +82,15 @@ public abstract class BaseActivity extends Activity{
         initData(savedInstanceState);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mImmersionBar != null) {
+            mImmersionBar.destroy();  //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
+        }
+        if(mUnbinder!=null){
+            mUnbinder.unbind();
+        }
+    }
 
 }
