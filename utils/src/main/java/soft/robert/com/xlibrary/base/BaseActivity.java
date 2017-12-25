@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 
+import com.gyf.barlibrary.ImmersionBar;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,16 +33,8 @@ public abstract class BaseActivity extends Activity{
     private Unbinder mUnbinder;
     private View rootView;
 
-    /*浸入式状态栏*/
-    public void initStatus(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            //透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
-    }
     public abstract boolean isScale();//是否缩放
+    public abstract boolean isImmersion();//是否浸入式状态栏
     public abstract boolean isScreenNormal();//是否竖屏
     public abstract int initView(Bundle savedInstanceState);//初始化View
     public abstract void initData(Bundle savedInstanceState);//初始化数据
@@ -52,6 +45,9 @@ public abstract class BaseActivity extends Activity{
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }else{//横屏
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+        if(isImmersion()){
+            ImmersionBar.with(this).init();
         }
         try {
             int layoutResID = initView(savedInstanceState);
