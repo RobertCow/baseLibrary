@@ -1,6 +1,7 @@
 package soft.robert.com.xlibrary.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -87,6 +88,19 @@ public abstract class BaseActivity extends Activity{
         }
         initData(savedInstanceState);
     }
+
+    public void gotoActivity(Class<?> cls){
+        Intent intent = new Intent(this,cls);
+        startActivity(intent);
+    }
+
+    public void gotoActivityAndFinish(Class<?> cls){
+        Intent intent = new Intent(this,cls);
+        startActivity(intent);
+        finish();
+    }
+
+
 
     @Override
     protected void onDestroy() {

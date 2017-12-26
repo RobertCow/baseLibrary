@@ -21,6 +21,11 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    public boolean isImmersion() {
+        return false;
+    }
+
+    @Override
     public boolean isScreenNormal() {
         return true;
     }
