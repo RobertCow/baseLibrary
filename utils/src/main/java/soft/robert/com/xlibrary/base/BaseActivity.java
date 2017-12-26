@@ -47,8 +47,8 @@ public abstract class BaseActivity extends Activity{
         }else{//横屏
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
+        mImmersionBar = ImmersionBar.with(this);
         if(isImmersion()){
-            mImmersionBar = ImmersionBar.with(this);
             mImmersionBar.init();   //所有子类都将继承这些相同的属性
         }
         try {
