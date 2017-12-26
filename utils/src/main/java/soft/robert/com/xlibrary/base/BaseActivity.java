@@ -100,7 +100,13 @@ public abstract class BaseActivity extends Activity{
         finish();
     }
 
-
+    /**
+     * 改变状态栏颜色
+     * @param colorId
+     */
+    public void changeStatusBarColor(int colorId){
+        mImmersionBar.statusBarColor(colorId).fitsSystemWindows(true).init();
+    }
 
     @Override
     protected void onDestroy() {
