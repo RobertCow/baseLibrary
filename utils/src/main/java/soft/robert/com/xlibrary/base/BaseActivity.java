@@ -19,7 +19,6 @@ import soft.robert.com.utils.R;
 import soft.robert.com.xlibrary.utils.BToast;
 import soft.robert.com.xlibrary.utils.LogUtils;
 import soft.robert.com.xlibrary.utils.SupportMultipleScreensUtil;
-import soft.robert.com.xlibrary.utils.ToastUtils;
 import soft.robert.com.xlibrary.utils.Utils;
 
 
