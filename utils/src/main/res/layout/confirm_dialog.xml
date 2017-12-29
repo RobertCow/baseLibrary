@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="500px"
+        android:layout_height="350px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100px"
+        android:background="@drawable/border"
+        >
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="2px"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/gray"
+            ></View>
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/line1"
+            android:layout_alignParentLeft="true"
+            android:text="取消"
+            android:gravity="center"
+            android:textSize="28px"
+            />
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/line1"
+            android:layout_alignParentRight="true"
+            android:text="确定"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="28px"
+            />
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_above="@+id/tv_left"
+            android:background="@color/gray"
+            ></View>
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="退出登录"
+            android:textSize="32px"
+            android:textColor="@color/black"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
