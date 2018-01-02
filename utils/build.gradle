@@ -39,4 +39,5 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'//网络加载框架
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'//拦截器
     compile 'com.gyf.barlibrary:barlibrary:2.3.0'//浸入式状态栏
+    compile 'com.github.dfqin:grantor:2.1.0'        //动态获取权限，详情见ActivitySetting
 }

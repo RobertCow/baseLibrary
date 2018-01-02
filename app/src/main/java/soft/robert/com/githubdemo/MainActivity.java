@@ -6,6 +6,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.dfqin.grantor.PermissionsUtil;
+
 import soft.robert.com.xlibrary.base.BaseActivity;
 import soft.robert.com.xlibrary.dialog.UniversalDialog;
 import soft.robert.com.xlibrary.utils.ChangeUtil;
