@@ -66,6 +66,10 @@ public abstract class BaseActivity extends Activity{
                     SupportMultipleScreensUtil.scale(rootView);
                 }
                 View back= rootView.findViewById(R.id.iv_back);
+                if(back == null){
+                    initData(savedInstanceState);
+                    return;
+                }
                 int titleColor = ((BaseApplication) getApplication()).titleColor;
                 if(titleColor != 0) {
                     View titleBackground = rootView.findViewById(R.id.rl_title);

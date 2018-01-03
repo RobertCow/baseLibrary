@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import soft.robert.com.xlibrary.base.BaseFragment;
+import soft.robert.com.xlibrary.utils.CountDownHelper;
 import soft.robert.com.xlibrary.utils.SupportMultipleScreensUtil;
 
 /**
@@ -19,6 +22,8 @@ import soft.robert.com.xlibrary.utils.SupportMultipleScreensUtil;
 
 public class FirstPageFragment extends BaseFragment {
 
+    @BindView(R.id.tv_get_code)
+    TextView tvGetCode;
     private View view;
     private Unbinder unbinder;
 
@@ -43,5 +48,11 @@ public class FirstPageFragment extends BaseFragment {
 
     public void initData(Bundle savedInstanceState) {
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }
