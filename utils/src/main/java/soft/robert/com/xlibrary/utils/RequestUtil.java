@@ -21,7 +21,7 @@ import okhttp3.WebSocketListener;
  * modified by chenpengfei
  * Data: 2016/8/3.
  */
-public class DPUtil {
+public class RequestUtil {
 
 
     /**
