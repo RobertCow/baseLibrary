@@ -1,6 +1,7 @@
 package soft.robert.com.githubdemo;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -46,10 +47,11 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
+    @SuppressLint("NewApi")
     @Override
     public void initData(Bundle savedInstanceState) {
         showConfirmDialog();
-        final CountDownHelper countDownHelper = new CountDownHelper(tvGetCode,R.color.colorAccent, R.color.gray,10000,1000);
+        final CountDownHelper countDownHelper = new CountDownHelper(tvGetCode,getDrawable(R.drawable.gray_get_code), R.color.white,10000,1000);
         tvGetCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

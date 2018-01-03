@@ -1,7 +1,7 @@
 package soft.robert.com.xlibrary.utils;
 
 import android.annotation.SuppressLint;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
@@ -14,27 +14,27 @@ import android.widget.TextView;
 
 public class CountDownHelper extends CountDownTimer {
 
-    private  int defalutColor;
-    private  String tips;//默认提示语
-    private  long duration;//倒计时时长
-    private  TextView textView;//目标控件
-    private  GradientDrawable mDefaultBackground;//默认样式
-    private  int changedColor;//点击后变色
+    private  String mTips;//默认提示语
+    private  long mDuration;//倒计时时长
+    private  TextView mTextView;//目标控件
+    private  Drawable mDefaultBackground,mChangedDrawable;//默认样式
+    private  int mChangedTextColor;//点击后变色
     private boolean isFirst = true;
+    private  int mDefaultTextColor;
 
     @SuppressLint("NewApi")
-    public CountDownHelper(TextView textView, int defaultColorId, int changedColorId, long duration, long graded) {
+    public CountDownHelper(TextView textView, Drawable changedDrawable, int changedTextColorId, long duration, long graded) {
         super(duration, graded);
         if (textView == null){
             return;
         }
         //默认样式
-        mDefaultBackground = ((GradientDrawable) textView.getBackground());
-        this.textView = textView;
-        tips = textView.getText().toString();
-        this.duration = duration;
-        defalutColor = textView.getResources().getColor(defaultColorId);
-        changedColor = textView.getResources().getColor(changedColorId);
+        mDefaultBackground = textView.getBackground();
+        mDefaultTextColor = textView.getCurrentTextColor();
+        mChangedDrawable = changedDrawable;
+        mTextView = textView;
+        mTips = textView.getText().toString();
+        mChangedTextColor = textView.getResources().getColor(changedTextColorId);
     }
 
 
@@ -42,22 +42,26 @@ public class CountDownHelper extends CountDownTimer {
 
     @Override
     public void onTick(long l) {
+        if (mTextView==null)
+            return;
         //计时过程
         if(isFirst){//开始计时
-            mDefaultBackground.setColor(changedColor);
-            mDefaultBackground.setStroke(0,0);
+            mTextView.setBackgroundDrawable(mChangedDrawable);
+            mTextView.setTextColor(mChangedTextColor);
             isFirst = false;
         }
-        textView.setClickable(false);//禁止点击
-        textView.setText(l/1000+"秒后重发");
+        mTextView.setClickable(false);//禁止点击
+        mTextView.setText(l/1000+"秒后重发");
     }
 
     @Override
     public void onFinish() {
+        if (mTextView==null)
+            return;
         //计时完毕
-        mDefaultBackground.setColor(defalutColor);
-        mDefaultBackground.setStroke(2,2);
-        textView.setClickable(true);
-        textView.setText(tips);
+        mTextView.setTextColor(mDefaultTextColor);
+        mTextView.setBackgroundDrawable(mDefaultBackground);
+        mTextView.setClickable(true);
+        mTextView.setText(mTips);
     }
 }
