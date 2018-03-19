@@ -32,7 +32,7 @@ public class RequestUtil {
      * @param json
      * @param id
      */
-    public void postJson(StringCallback callback, String url, String json, int id) {
+    public static void postJson(StringCallback callback, String url, String json, int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -58,7 +58,7 @@ public class RequestUtil {
      * @param params
      * @param id
      */
-    public void post(StringCallback callback, String url, Map params, int id) {
+    public static void post(StringCallback callback, String url, Map params, int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -80,7 +80,7 @@ public class RequestUtil {
      * @param params
      * @param id
      */
-    public void postHeader(StringCallback callback, String url, Map params, int id) {
+    public static void postHeader(StringCallback callback, String url, Map params, int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -109,7 +109,7 @@ public class RequestUtil {
      * @param json
      * @param id
      */
- public void upLoadJsonHeader(StringCallback callback, String url, String json, int id) {
+ public static void upLoadJsonHeader(StringCallback callback, String url, String json, int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -137,7 +137,7 @@ public class RequestUtil {
      * @param url
      * @param id
      */
-    public void get(StringCallback callback, String url, int id) {
+    public static void get(StringCallback callback, String url, int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -160,7 +160,7 @@ public class RequestUtil {
      * @param file
      * @param id
      */
-    public void upLoad(StringCallback callback, String url, String key, File file, int id) {
+    public static void upLoad(StringCallback callback, String url, String key, File file, int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -183,7 +183,7 @@ public class RequestUtil {
      * @param file
      * @param id
      */
-    public void upLoad(StringCallback callback, String url, String key, File file, Map<String, String> map, int id) {
+    public static void upLoad(StringCallback callback, String url, String key, File file, Map<String, String> map, int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -207,7 +207,7 @@ public class RequestUtil {
      * @param url
      * @param listener
      */
-    public void connectWebSocket(String url,WebSocketListener listener){
+    public static void connectWebSocket(String url,WebSocketListener listener){
         OkHttpClient okHttpClient = OkHttpUtils.getInstance().getOkHttpClient();
         Request request = new Request.Builder().url(url).build();
         okHttpClient.newWebSocket(request, listener);
@@ -218,7 +218,7 @@ public class RequestUtil {
      * @param url
      * @param fileCallBack
      */
-    public void downLoadFile(String url, FileCallBack fileCallBack){
+    public static void downLoadFile(String url, FileCallBack fileCallBack){
         OkHttpUtils
                 .get()//
                 .url(url)//
@@ -240,7 +240,7 @@ public class RequestUtil {
      * @param key
      * @param value
      */
-    public void save(String key,long value){
+    public static void save(String key,long value){
        Utils.getSpUtils().put(key,value);
     }
 
@@ -258,7 +258,7 @@ public class RequestUtil {
      * @param key
      * @param value
      */
-    public void save(String key,int value){
+    public static void save(String key,int value){
        Utils.getSpUtils().put(key,value);
     }
 
@@ -267,14 +267,14 @@ public class RequestUtil {
      * @param key
      * @param value
      */
-    public void save(String key,float value){
+    public static void save(String key,float value){
        Utils.getSpUtils().put(key,value);
     }
 
     /**
      * 清空缓存
      */
-    public void clear(){
+    public static void clear(){
         Utils.getSpUtils().clear();
     }
 
@@ -283,7 +283,7 @@ public class RequestUtil {
      * @param key
      * @return
      */
-    public boolean getBoolean(String key){
+    public static boolean getBoolean(String key){
         return Utils.getSpUtils().getBoolean(key,false);
     }
 
@@ -292,7 +292,7 @@ public class RequestUtil {
      * @param key
      * @return
      */
-    public String getString(String key){
+    public static String getString(String key){
         return Utils.getSpUtils().getString(key,"null");
     }
 }
