@@ -5,11 +5,8 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import soft.robert.com.xlibrary.base.BaseActivity;
 import soft.robert.com.xlibrary.dialog.UniversalDialog;
 import soft.robert.com.xlibrary.utils.ChangeUtil;
@@ -28,8 +25,8 @@ public class MainActivity extends BaseActivity {
     TextView tvGetCode;
 
     @Override
-    public boolean isScale() {
-        return true;
+    public boolean noScale() {
+        return false;
     }
 
     @Override
@@ -38,8 +35,8 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public boolean isScreenNormal() {
-        return true;
+    public boolean isLandscape() {
+        return false;
     }
 
     @Override

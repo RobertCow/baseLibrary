@@ -33,21 +33,21 @@ public abstract class BaseActivity extends Activity{
     private View rootView;
     private ImmersionBar mImmersionBar;
 
-    public abstract boolean isScale();//是否缩放
+    public abstract boolean noScale();//是否缩放
     public abstract boolean isImmersion();//是否浸入式状态栏
-    public abstract boolean isScreenNormal();//是否竖屏
+    public abstract boolean isLandscape();//是否竖屏
     public abstract int initView(Bundle savedInstanceState);//初始化View
     public abstract void initData(Bundle savedInstanceState);//初始化数据
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(isScreenNormal()) {//竖屏
+        if(!isLandscape()) {//竖屏
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }else{//横屏
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
         mImmersionBar = ImmersionBar.with(this);
-        if(isImmersion()){
+        if(isImmersion()){//浸入式状态栏
             mImmersionBar.init();   //所有子类都将继承这些相同的属性
         }
         try {
@@ -57,8 +57,8 @@ public abstract class BaseActivity extends Activity{
                 //绑定到butterknife
                 mUnbinder = ButterKnife.bind(this);
                 rootView = findViewById(android.R.id.content);
-                if (null != rootView && isScale()) {
-                    if(isScreenNormal()) {//竖屏
+                if (null != rootView && !noScale()) {//缩放
+                    if(!isLandscape()) {//竖屏
                         SupportMultipleScreensUtil.init(Utils.getContext(),false);
                     }else{//横屏
                         SupportMultipleScreensUtil.init(Utils.getContext(),true);
