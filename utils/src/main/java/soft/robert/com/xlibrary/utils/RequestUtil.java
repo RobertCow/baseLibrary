@@ -137,7 +137,7 @@ public class RequestUtil {
      * @param url
      * @param id
      */
-    public static void get(StringCallback callback, String url, int id) {
+    public static void get(StringCallback callback, String url, Map map,int id) {
         if(!NetWorkUtils.isMobileConnected(Utils.getContext())){
             ToastUtils.showShortToast("网络错误！");
             return;
@@ -145,6 +145,7 @@ public class RequestUtil {
         OkHttpUtils
                 .get()
                 .url(url)
+                .params(map)
                 .id(id)
                 .tag(id)
                 .build().execute(callback);
