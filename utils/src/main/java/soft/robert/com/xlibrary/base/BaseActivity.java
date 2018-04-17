@@ -42,11 +42,11 @@ public abstract class BaseActivity extends Activity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        try {
-            if(isLandscape()) {//横屏屏
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-            }
-        }catch (Exception e){}
+//        try {
+//            if(isLandscape()) {//横屏屏
+//                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//            }
+//        }catch (Exception e){}
         mImmersionBar = ImmersionBar.with(this);
         if(isImmersion()){//浸入式状态栏
             mImmersionBar.init();   //所有子类都将继承这些相同的属性
