@@ -11,6 +11,7 @@ import soft.robert.com.xlibrary.base.BaseActivity;
 import soft.robert.com.xlibrary.dialog.UniversalDialog;
 import soft.robert.com.xlibrary.utils.ChangeUtil;
 import soft.robert.com.xlibrary.utils.CountDownHelper;
+import soft.robert.com.xlibrary.utils.LogUtil;
 
 /**
  * Created on 2017/12/22.
@@ -53,6 +54,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 countDownHelper.start();
+                LogUtil.e("---------------");
             }
         });
     }
